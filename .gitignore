@@ -1,0 +1,37 @@
+## Build folders
+bin/
+obj/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VS Code
+.idea/
+.vscode/
+
+## Logs
+*.log
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## SQLite databases (optional)
+*.db
+*.db-shm
+*.db-wal
+
+## Test results
+TestResults/
+
+## NuGet
+packages/
+*.nupkg
+
+## Publish folders
+publish/
+out/

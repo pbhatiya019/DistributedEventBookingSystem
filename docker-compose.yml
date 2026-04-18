@@ -1,0 +1,47 @@
+services:
+  authservice:
+    build:
+      context: .
+      dockerfile: AuthService/Dockerfile
+    container_name: authservice
+    ports:
+      - "5080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - distributedapp-network
+
+  eventservice:
+    build:
+      context: .
+      dockerfile: EventService/Dockerfile
+    container_name: eventservice
+    ports:
+      - "5037:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+    networks:
+      - distributedapp-network
+
+  ticketservice:
+    build:
+      context: .
+      dockerfile: TicketService/Dockerfile
+    container_name: ticketservice
+    ports:
+      - "5129:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      Services__EventServiceBaseUrl: http://eventservice:8080
+    depends_on:
+      - eventservice
+      - authservice
+    networks:
+      - distributedapp-network
+
+networks:
+  distributedapp-network:
+    driver: bridge

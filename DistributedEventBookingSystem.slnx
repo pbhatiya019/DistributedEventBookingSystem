@@ -1,1 +1,7 @@
-<Solution />
+<Solution>
+  <Project Path="AuthService/AuthService.csproj" />
+  <Project Path="ClientApp/ClientApp.csproj" />
+  <Project Path="DistributedEventBookingSystem.Tests/DistributedEventBookingSystem.Tests.csproj" />
+  <Project Path="EventService/EventService.csproj" />
+  <Project Path="TicketService/TicketService.csproj" />
+</Solution>

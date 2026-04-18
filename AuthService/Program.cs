@@ -48,13 +48,9 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
     db.Database.Migrate();
 }
-
-// Pipeline
-if (app.Environment.IsDevelopment())
-{
+    app.MapGet("/", () => "AuthService Running");
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
 app.UseRouting();
 

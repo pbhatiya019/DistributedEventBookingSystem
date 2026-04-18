@@ -83,11 +83,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Pipeline
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseRouting();
 
